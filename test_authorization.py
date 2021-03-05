@@ -5,11 +5,11 @@ from selenium.webdriver.common.by import By
 from TestData import Locators, Data
 
 
-class TestAliAutorizationAndMenuSwipe():
-    
+class TestAliAuthorizationAndMenuSwipe:
 
     def test_authorization_with_wrong_data(self, driver):
-        menu_element = WebDriverWait(driver, 3).until(expected_conditions.element_to_be_clickable((By.ID, Locators.menu_button)))
+        menu_element = \
+            WebDriverWait(driver, 3).until(expected_conditions.element_to_be_clickable((By.ID, Locators.menu_button)))
         menu_element.click()
         authorization_button = driver.find_element(By.ID, Locators.login_menu_button)
         authorization_button.click()
@@ -25,9 +25,9 @@ class TestAliAutorizationAndMenuSwipe():
         dialog_window_text = dialog_window.text
         assert dialog_window_text == 'Password is incorrect. Please try again.'
 
-
     def test_authorization_correct_data(self, driver):
-        menu_element = WebDriverWait(driver, 3).until(expected_conditions.element_to_be_clickable((By.ID, Locators.menu_button)))
+        menu_element = \
+            WebDriverWait(driver, 3).until(expected_conditions.element_to_be_clickable((By.ID, Locators.menu_button)))
         menu_element.click()
         authorization_button = driver.find_element(By.ID, Locators.login_menu_button)
         authorization_button.click()
@@ -45,6 +45,6 @@ class TestAliAutorizationAndMenuSwipe():
         assert order_button_enabled is True and order_button_text == 'My Orders'
 
     def test_menu_swipe(self, driver):
-        menu_element = WebDriverWait(driver, 3).until(expected_conditions.element_to_be_clickable((By.ID, Locators.menu_button)))
-        driver.swipe(0, 1080, 500, 1080, 100)
+        WebDriverWait(driver, 3).until(expected_conditions.element_to_be_clickable((By.ID, Locators.menu_button)))
+        driver.swipe(0, 1080, 500, 1080, 250)
         time.sleep(3)

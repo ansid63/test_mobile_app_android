@@ -1,9 +1,6 @@
 import pytest
 import os
-import textwrap
-import sys
 import copy
-from datetime import datetime
 from appium import webdriver
 
 
@@ -16,12 +13,8 @@ def driver(request):
     'platformVersion': '11.0',
     'deviceName': 'Android Emulator',
     }
-    PACKAGE = 'io.appium.android.apis'
-    ALERT_DIALOG_ACTIVITY = '.app.AlertDialogSamples'
-
 
     EXECUTOR = 'http://127.0.0.1:4723/wd/hub'
-
     caps = copy.copy(ANDROID_BASE_CAPS)
 
     driver = webdriver.Remote(
@@ -29,10 +22,6 @@ def driver(request):
         desired_capabilities=caps
     )
 
-    def fin():
-        driver.quit()
-
-    request.addfinalizer(fin)
-
     driver.implicitly_wait(10)
-    return driver
+    yield driver
+    driver.quit()
