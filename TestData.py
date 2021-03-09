@@ -7,6 +7,9 @@ class Locators:
     confirm_button = 'com.alibaba.aliexpresshd:id/tv_signin_btn_label'
     dialog_window_el = 'android:id/message'
     order_button_el = 'com.alibaba.aliexpresshd:id/tv_all_orders'
+    notification_setting = "com.alibaba.aliexpresshd:id/rl_notification_settings"
+    notification_switch = "com.alibaba.aliexpresshd:id/switch_promotion"
+
 
 class Data:
     WRONG_EMAIL = '77345@yahoo.com'
