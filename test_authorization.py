@@ -1,8 +1,8 @@
-import time
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.common.by import By
-from TestData import Locators, Data
+from TestData import Data
+from Locators import Locators
 
 
 class TestAliAuthorizationAndMenuSwipe:
