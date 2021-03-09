@@ -10,3 +10,5 @@ class Locators:
     notification_setting = "com.alibaba.aliexpresshd:id/rl_notification_settings"
     notification_switch = "com.alibaba.aliexpresshd:id/switch_promotion"
     reminder_frequency_button = "com.alibaba.aliexpresshd:id/tv_price_reduction_freq"
+    notification_sales = "com.alibaba.aliexpresshd:id/rl_promotions_sales"
+    notification_order_update = "com.alibaba.aliexpresshd:id/rl_order_alerts"
