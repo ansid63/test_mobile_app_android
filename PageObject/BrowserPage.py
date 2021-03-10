@@ -15,3 +15,7 @@ class BrowserPageObject(BasePageObject):
         self.driver.find_element(By.ID, Locators.browser_switch_tab).click()
         self.driver.find_element(By.ID, Locators.browser_menu).click()
         self.driver.find_element_by_android_uiautomator('new UiSelector().text("Close all tabs")').click()
+
+    def move_browser_to_background_and_close(self):
+        driver.background_app(1)
+        driver.background_app(-1)

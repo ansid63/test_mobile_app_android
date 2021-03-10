@@ -28,3 +28,4 @@ class TestAliMoveToChromeLink:
         browser_url= browser_page.get_url()
         assert browser_url.text == "sale.aliexpress.com/ru/__mobile/privacypolicy.htm", "Wrong link in opened browser"
         browser_page.close_unusefull_pages()
+        browser_page.move_browser_to_background_and_close()
