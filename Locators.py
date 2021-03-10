@@ -5,7 +5,7 @@ class Locators:
     email_input_field = 'com.alibaba.aliexpresshd:id/et_email'
     password_input_field = 'com.alibaba.aliexpresshd:id/et_password'
     confirm_button = 'com.alibaba.aliexpresshd:id/tv_signin_btn_label'
-    dialog_window_el = 'android:id/message'
+    dialog_window_el = 'android.widget.FrameLayout'
     order_button_el = 'com.alibaba.aliexpresshd:id/tv_all_orders'
     notification_setting = "com.alibaba.aliexpresshd:id/rl_notification_settings"
     notification_switch = "com.alibaba.aliexpresshd:id/switch_promotion"

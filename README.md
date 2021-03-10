@@ -18,3 +18,7 @@ test_move_to_another_app.py
 test_move_to_another_app_po.py 
 Same as test_move_to_another_app but with PageObject Structure
 1. Move from mobile app to web page in Chrome. Result: opened webpage https://sale.aliexpress.com/__mobile/privacypolicy.htm
+
+test_authorization_saucelabs.py
+1. Test for remote launch in SauceLabs. I had only one device in free plan, and basic "Authorization filed" test filed there.
+For this purpose use dialog window class in last step, just to catch probleme with login

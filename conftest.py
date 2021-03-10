@@ -10,6 +10,7 @@ def driver(request):
         "platformName": "Android",
         "platformVersion": "9",
         "deviceName": "Samsung Galaxy S9",
+        "automationName": "UIAutomator2",
         "app": "storage:61f3316b-f0bf-4df0-9127-d2758b1e67f2",
         "app_package": "com.alibaba.aliexpresshd",
         "build": "build-252",
