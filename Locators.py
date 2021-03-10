@@ -12,3 +12,8 @@ class Locators:
     reminder_frequency_button = "com.alibaba.aliexpresshd:id/tv_price_reduction_freq"
     notification_sales = "com.alibaba.aliexpresshd:id/rl_promotions_sales"
     notification_order_update = "com.alibaba.aliexpresshd:id/rl_order_alerts"
+    privacy_policy_button = "com.alibaba.aliexpresshd:id/rl_privacy_policy_settings"
+    just_once_button = "android:id/button_once"
+    browser_url_field = "com.android.chrome:id/url_bar"
+    browser_switch_tab = "com.android.chrome:id/tab_switcher_button"
+    browser_menu = "com.android.chrome:id/menu_button"
