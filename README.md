@@ -1,5 +1,5 @@
-Second part of mobile automation practice
-==Python== ==Appium== ==pytest==
+### Mobile automation tests
+> Used tools Python, Appium, pytest, Allure
 
 test_authorization.py
 1. Create test "Falled authorization". Result: Authorization filed, fail notification.
