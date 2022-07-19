@@ -1,4 +1,5 @@
 import allure
+from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from Locators import NamedLocators
@@ -49,9 +50,12 @@ class BasePageObject(object):
 
     @allure.step("Проверить что у элемента {element} состояние {condition}")
     def check_element_status(self, element: ElementWithName, condition):
-        if condition == "is_enabled":
-            r_element = self.get_element(element)
-            assert r_element.is_enabled()
+        try:
+            if condition == "is_enabled":
+                r_element = self.get_element(element)
+                assert r_element.is_enabled()
+        except NoSuchElementException:
+            raise AssertionError(f"Элемент {element} не в состоянии {condition}")
         return r_element
 
     @allure.step("Проверить что текст элемента {element} соответствует {expected_text}")
