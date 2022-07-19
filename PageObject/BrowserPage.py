@@ -1,21 +1,19 @@
-from selenium.webdriver.common.by import By
 from PageObject.BasePageObject import BasePageObject
-from Locators import Locators
+from Locators import TextLocators, NamedLocators
+from TestData import Data
+
 
 class BrowserPageObject(BasePageObject):
 
-    def get_url(self):
-        browser_url = self.driver.find_element(By.ID, Locators.browser_url_field)
-        return browser_url
-
-    def click_privacy_policy_button(self):
-        self.driver.find_element(By.ID, Locators.privacy_policy_button).click()
+    def check_url(self):
+        self.check_element_text(NamedLocators.BROWSER_URL_FIELD, Data.PRIVACY_POLICY_LINK)
 
     def close_unusefull_pages(self):
-        self.driver.find_element(By.ID, Locators.browser_switch_tab).click()
-        self.driver.find_element(By.ID, Locators.browser_menu).click()
-        self.driver.find_element_by_android_uiautomator('new UiSelector().text("Close all tabs")').click()
+        self.click_element(NamedLocators.BROWSER_SWITCH_TAB)
+        self.click_element_with_wait(NamedLocators.BROWSER_MENU, wait_type="clickable", timeout=4)
+        self.click_element_with_text(TextLocators.CLOSE_ALL_TABS)
+        self.click_element(NamedLocators.CONFIRM_BUTTON_CHROME)
 
     def move_browser_to_background_and_close(self):
-        driver.background_app(1)
-        driver.background_app(-1)
+        self.driver.background_app(1)
+        self.driver.background_app(-1)

@@ -1,19 +1,17 @@
-from selenium.webdriver.common.by import By
+from selenium.common.exceptions import NoSuchElementException
 from PageObject.BasePageObject import BasePageObject
-from Locators import Locators
+from Locators import TextLocators, NamedLocators
+
 
 class PrivacyPolicePageObject(BasePageObject):
 
     def check_dialog_window(self):
         try:
-            dialog_window_enabled = self.driver.find_element_by_android_uiautomator('new UiSelector().text("Open with Chrome")').is_enabled()
-            return dialog_window_enabled
+            self.check_element_with_text_status(TextLocators.OPEN_WITH_CHROME, "is_enabled")
             
         except NoSuchElementException:
-            dialog_window_enabled = self.driver.find_element_by_android_uiautomator('new UiSelector().text("Open with")').is_enabled()
-            self.driver.find_element_by_android_uiautomator('new UiSelector().text("Chrome")').click()
-            return dialog_window_enabled
-
+            self.check_element_with_text_status(TextLocators.OPEN_WITH, "is_enabled")
+            self.click_element_with_text(TextLocators.CHROME)
 
     def click_go_just_once_button(self):
-        self.driver.find_element(By.ID, Locators.just_once_button).click()
+        self.click_element(NamedLocators.JUST_ONCE_BUTTON)

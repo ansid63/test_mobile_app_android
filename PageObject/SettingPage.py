@@ -1,8 +1,8 @@
-from selenium.webdriver.common.by import By
 from PageObject.BasePageObject import BasePageObject
-from Locators import Locators
+from Locators import NamedLocators
+
 
 class SettingPageObject(BasePageObject):
 
     def click_privacy_policy_button(self):
-        self.driver.find_element(By.ID, Locators.privacy_policy_button).click()
+        self.click_element(NamedLocators.PRIVACY_POLICY_BUTTON)
