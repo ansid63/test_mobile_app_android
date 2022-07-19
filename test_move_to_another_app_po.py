@@ -3,12 +3,14 @@ from PageObject.SettingPage import SettingPageObject
 from PageObject.PrivacyPolicyPage import PrivacyPolicePageObject
 from PageObject.BrowserPage import BrowserPageObject
 import allure
+import time
 
 
 class TestAliMoveToChromeLink:
     @allure.title("Переход к политике конфидициальности, с POM")
     def test_move_to_chrome_link(self, driver):
         menu_element = MenuPageObject(driver)
+        time.sleep(2)
         menu_element.click_menu()
         menu_element.click_setting()
         SettingPageObject(driver).click_privacy_policy_button()

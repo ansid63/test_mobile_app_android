@@ -1,3 +1,5 @@
+import time
+
 import allure
 from selenium.common.exceptions import NoSuchElementException
 
@@ -10,6 +12,7 @@ class TestAliMoveToChromeLink:
     @allure.title("Переход в другое приложение.")
     def test_move_to_chrome_link(self, driver):
         base_page = BasePageObject(driver)
+        time.sleep(2)
         base_page.click_element_with_wait(NamedLocators.MENU_BUTTON, wait_type="clickable", timeout=10)
         base_page.click_element_with_text(TextLocators.SETTINGS)
         base_page.click_element(NamedLocators.PRIVACY_POLICY_BUTTON)
