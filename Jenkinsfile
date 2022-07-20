@@ -32,7 +32,6 @@ pipeline {
             }
           }
         }
-    }
     stage('Reports') {
       steps {
         allure([
