@@ -9,6 +9,7 @@ class TestAliAuthorizationAndMenuSwipe:
     @allure.title("Авторизация с некорректными данными")
     def test_authorization_with_wrong_data(self, driver):
         base_page = BasePageObject(driver)
+        time.sleep(2)
         base_page.click_element_with_wait(NamedLocators.MENU_BUTTON, wait_type="clickable", timeout=10)
         base_page.click_element(NamedLocators.LOGIN_MENU_BUTTON)
         base_page.click_element(NamedLocators.SIGN_IN_BUTTON)
