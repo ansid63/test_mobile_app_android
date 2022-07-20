@@ -1,5 +1,5 @@
 # Side Apk file
-#*.apk
+*.apk
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
