@@ -3,16 +3,20 @@ import os
 import copy
 from appium import webdriver
 import allure
+from pathlib import Path
+
+ROOT_DIR = Path(__file__).parent
+
 
 
 @pytest.fixture(scope='function')
 def driver(request):
     ANDROID_BASE_CAPS = {
-    'app': os.path.abspath('Ali.apk'),
+    'app': '/root/tmp/Ali.apk',
     'automationName': 'UIAutomator2',
     'platformName': 'Android',
     'platformVersion': '11.0',
-    'deviceName': 'Android Emulator',
+    'deviceName': 'Nexus 5',
     }
 
     EXECUTOR = 'http://127.0.0.1:4723/wd/hub'
