@@ -34,6 +34,6 @@ where -v $PWD/Ali.apk:/root/tmp/Ali.apk path to local_apk:docker_apk.
 1. Setup Jenkins, Docker
 2. Add Jenkins user to Docker group ```sudousermod-a -G dockerjenkins```
 3. Add Pipeline project to Jenkins, similar to [this](https://habr.com/ru/company/simbirsoft/blog/597703/)
-4. Use branch 'docker and ```EXECUTOR = 'http://android:4723/wd/hub'```
+4. Use branch 'docker' and ```EXECUTOR = 'http://android:4723/wd/hub'```
 5. Launch build in Jenkins
 
