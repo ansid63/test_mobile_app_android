@@ -19,7 +19,7 @@ def driver(request):
     'deviceName': 'Nexus 5',
     }
 
-    EXECUTOR = 'http://android:4723/wd/hub'
+    EXECUTOR = 'http://0.0.0.0:4723/wd/hub'
     caps = copy.copy(ANDROID_BASE_CAPS)
 
     driver = webdriver.Remote(
