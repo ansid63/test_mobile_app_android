@@ -1,7 +1,7 @@
 from PageObject.BasePageObject import BasePageObject
 from TestData import Data
 from Locators import NamedLocators, TextLocators
-
+import time
 import allure
 
 
@@ -9,6 +9,7 @@ class TestAliChangeReminderFrequency:
     @allure.title("Смена частоты уведомлений")
     def test_change_reminder_frequency(self, driver):
         base_page = BasePageObject(driver)
+        time.sleep(2)
         base_page.click_element_with_wait(NamedLocators.MENU_BUTTON, wait_type="clickable", timeout=10)
         base_page.click_element_with_text(TextLocators.SETTINGS)
         base_page.click_element(NamedLocators.NOTIFICATION_SETTING)
