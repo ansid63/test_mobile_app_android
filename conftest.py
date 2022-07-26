@@ -16,7 +16,7 @@ def driver(request):
     'automationName': 'UIAutomator2',
     'platformName': 'Android',
     'platformVersion': '11.0',
-    'deviceName': 'Android Emulator',
+    "appium:udid": 'emulator-5554',
     }
 
     EXECUTOR = 'http://127.0.0.1:4723/wd/hub'
