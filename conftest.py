@@ -3,12 +3,16 @@ import os
 import copy
 from appium import webdriver
 import allure
+from pathlib import Path
+
+
+ROOT_DIR = Path(__file__).parent
 
 
 @pytest.fixture(scope='function')
 def driver(request):
     ANDROID_BASE_CAPS = {
-    'app': os.path.abspath('Ali.apk'),
+    "appium:app": os.path.abspath(os.path.join(ROOT_DIR, "Ali.apk")),
     'automationName': 'UIAutomator2',
     'platformName': 'Android',
     'platformVersion': '11.0',

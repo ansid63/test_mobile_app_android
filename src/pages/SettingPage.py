@@ -1,5 +1,5 @@
-from PageObject.BasePageObject import BasePageObject
-from Locators import NamedLocators
+from src.pages.BasePageObject import BasePageObject
+from src.pages.Locators import NamedLocators
 
 
 class SettingPageObject(BasePageObject):

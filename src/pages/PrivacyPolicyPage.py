@@ -1,6 +1,6 @@
 from selenium.common.exceptions import NoSuchElementException
-from PageObject.BasePageObject import BasePageObject
-from Locators import TextLocators, NamedLocators
+from src.pages.BasePageObject import BasePageObject
+from src.pages.Locators import TextLocators, NamedLocators
 
 
 class PrivacyPolicePageObject(BasePageObject):

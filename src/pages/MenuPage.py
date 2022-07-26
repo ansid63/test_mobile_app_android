@@ -1,5 +1,4 @@
-from selenium.webdriver.common.by import By
-from PageObject.BasePageObject import BasePageObject
+from src.pages.BasePageObject import BasePageObject
 
 
 class MenuPageObject(BasePageObject):

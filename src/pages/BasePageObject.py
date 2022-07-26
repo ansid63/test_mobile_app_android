@@ -2,8 +2,8 @@ import allure
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
-from Locators import NamedLocators
-from Locators import ElementWithName
+from src.pages.Locators import NamedLocators
+from src.pages.Locators import ElementWithName
 
 
 class BasePageObject(object):
@@ -67,3 +67,11 @@ class BasePageObject(object):
     @allure.step("Отправить в элемент {element} текст {text}")
     def send_text_to_element(self, element: ElementWithName, text):
         self.get_element(element).send_keys(text)
+
+    @allure.step("Закрыть тестируемое приложение")
+    def close_app(self):
+        self.driver.reset()
+
+    @allure.step("Закрыть приложение с именем пакета {package_name}")
+    def close_app_with_name(self, package_name):
+        self.driver.terminate_app(app_id=package_name)

@@ -17,9 +17,6 @@ test_change_reminder_frequency.py
 test_move_to_another_app.py
 1. Move from mobile app to web page in Chrome. Result: opened webpage https://sale.aliexpress.com/__mobile/privacypolicy.htm
 
-test_move_to_another_app_po.py 
-Same as test_move_to_another_app but with PageObject Structure
-1. Move from mobile app to web page in Chrome. Result: opened webpage https://sale.aliexpress.com/__mobile/privacypolicy.htm
 
 ### Docker branch
 

@@ -1,6 +1,6 @@
-from PageObject.BasePageObject import BasePageObject
-from Locators import TextLocators, NamedLocators
-from TestData import Data
+from src.pages.BasePageObject import BasePageObject
+from src.pages.Locators import TextLocators, NamedLocators
+from src.data.TestData import Data
 
 
 class BrowserPageObject(BasePageObject):
