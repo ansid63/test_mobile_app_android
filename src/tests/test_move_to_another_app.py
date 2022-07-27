@@ -8,7 +8,7 @@ import time
 
 
 class TestAliMoveToChromeLink:
-    @allure.title("Переход к политике конфидициальности, с POM")
+    @allure.title("Переход к политике конфидициальности")
     def test_move_to_chrome_link(self, driver):
         main_page = MainPageObject(driver)
         main_page.click_menu_button()
