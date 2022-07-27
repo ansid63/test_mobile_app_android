@@ -136,3 +136,5 @@ dmypy.json
 
 # Allure report
 report/
+
+# npm packages data
