@@ -35,6 +35,7 @@ class TestAliAuthorizationAndMenuSwipe:
 
     @allure.title("Открытие бокового меню свайпом")
     def test_menu_swipe(self, driver):
-        BasePageObject(driver).get_element_with_wait(NamedLocators.MENU_BUTTON, wait_type="clickable", timeout=3)
-        driver.swipe(0, 1080, 500, 1080, 250)
+        main_page = MainPageObject(driver)
+        main_page.get_element_with_wait(NamedLocators.MENU_BUTTON, wait_type="clickable", timeout=3)
+        main_page.make_swipe(x_from=0, y_from=0.5, x_to=0.5, y_to=0.5, swipe_length=0.25)
         time.sleep(3)

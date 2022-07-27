@@ -75,3 +75,10 @@ class BasePageObject(object):
     @allure.step("Закрыть приложение с именем пакета {package_name}")
     def close_app_with_name(self, package_name):
         self.driver.terminate_app(app_id=package_name)
+
+    @allure.step("Сделать свайп от {x_from},{y_from} к {x_to},{y_to} на длинну {swipe_length}")
+    def make_swipe(self, x_from, y_from, x_to, y_to, swipe_length):
+        win_size = self.driver.get_window_size()
+        width = win_size['width']
+        height = win_size['height']
+        self.driver.swipe(width * x_from, height * y_from, width * x_to, height * y_to, width * swipe_length)
