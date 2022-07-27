@@ -138,3 +138,5 @@ dmypy.json
 report/
 
 # npm packages data
+package.json
+package-lock.json
