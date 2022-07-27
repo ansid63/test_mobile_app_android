@@ -1,7 +1,5 @@
-from src.pages.BasePageObject import BasePageObject
 from src.data.TestData import Data
 from src.pages.Locators import NamedLocators, TextLocators
-import time
 import allure
 from src.pages.MainPage import MainPageObject
 from src.pages.SettingPage import SettingPageObject
