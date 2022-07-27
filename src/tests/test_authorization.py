@@ -2,7 +2,7 @@ import time
 import allure
 from src.pages.BasePageObject import BasePageObject
 from src.data.TestData import Data
-from src.pages.Locators import NamedLocators
+from src.pages.Locators import NamedLocators, TextLocators
 from src.pages.MainPage import MainPageObject
 from src.pages.MenuPage import MenuPageObject
 
@@ -38,4 +38,4 @@ class TestAliAuthorizationAndMenuSwipe:
         main_page = MainPageObject(driver)
         main_page.get_element_with_wait(NamedLocators.MENU_BUTTON, wait_type="clickable", timeout=3)
         main_page.make_swipe(x_from=0, y_from=0.5, x_to=0.5, y_to=0.5, swipe_length=0.25)
-        time.sleep(3)
+        assert main_page.get_element_with_text(TextLocators.SETTINGS).text == "Settings"

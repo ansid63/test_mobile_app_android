@@ -75,8 +75,11 @@ class BasePageObject(object):
     def close_app_with_name(self, package_name):
         self.driver.terminate_app(app_id=package_name)
 
-    @allure.step("Сделать свайп от {x_from},{y_from} к {x_to},{y_to} на длинну {swipe_length}")
+    @allure.step("Сделать свайп от ({x_from},{y_from}) к ({x_to},{y_to}) на длинну {swipe_length} "
+                 "относительных координат")
     def make_swipe(self, x_from, y_from, x_to, y_to, swipe_length):
+        """Делает свайп от точки к точке на определенную длинну.
+        Координаты задаются относительно ширины и высоты экрана"""
         win_size = self.driver.get_window_size()
         width = win_size['width']
         height = win_size['height']
