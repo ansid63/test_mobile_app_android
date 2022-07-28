@@ -1,26 +1,13 @@
 import pytest
-import os
-import copy
 from appium import webdriver
 import allure
-from pathlib import Path
-
-
-ROOT_DIR = Path(__file__).parent
+from src.helpers.helpers import get_base_caps
 
 
 @pytest.fixture(scope='function')
 def driver(request):
-    ANDROID_BASE_CAPS = {
-    "appium:app": os.path.abspath(os.path.join(ROOT_DIR, "Ali.apk")),
-    'automationName': 'UIAutomator2',
-    'platformName': 'Android',
-    'platformVersion': '11.0',
-    "appium:udid": 'emulator-5554',
-    }
-
+    caps = get_base_caps()
     EXECUTOR = 'http://127.0.0.1:4723/wd/hub'
-    caps = copy.copy(ANDROID_BASE_CAPS)
 
     driver = webdriver.Remote(
         command_executor=EXECUTOR,
