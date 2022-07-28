@@ -13,7 +13,7 @@ def get_worker_index():
 def get_base_caps():
     worker_number = get_worker_index()
     ANDROID_BASE_CAPS = {
-    "appium:app": os.path.abspath(os.path.join(ROOT_DIR, "Ali.apk")),
+    'app': '/root/tmp/Ali.apk',
     'automationName': 'UIAutomator2',
     'platformName': 'Android',
     'platformVersion': '11.0',
@@ -23,9 +23,24 @@ def get_base_caps():
     match worker_number:
         case 'gw0':
             ANDROID_BASE_CAPS["appium:udid"] = 'emulator-5554'
+            ANDROID_BASE_CAPS["appium:adbPort"] = 5038
         case 'master':
             ANDROID_BASE_CAPS["appium:udid"] = 'emulator-5554'
+            ANDROID_BASE_CAPS["appium:adbPort"] = 5038
         case 'gw1':
-            ANDROID_BASE_CAPS["appium:udid"] = 'emulator-5556'
+            ANDROID_BASE_CAPS["appium:udid"] = 'emulator-5554'
+            ANDROID_BASE_CAPS["appium:adbPort"] = 5037
     caps = copy.copy(ANDROID_BASE_CAPS)
     return caps
+
+
+def get_base_executor():
+    worker_number = get_worker_index()
+    match worker_number:
+        case 'gw0':
+            executor = 'http://127.0.0.1:4723/wd/hub'
+        case 'master':
+            executor = 'http://127.0.0.1:4723/wd/hub'
+        case 'gw1':
+            executor = 'http://127.0.0.1:4725/wd/hub'
+    return executor

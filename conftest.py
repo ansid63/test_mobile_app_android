@@ -1,13 +1,13 @@
 import pytest
 from appium import webdriver
 import allure
-from src.helpers.helpers import get_base_caps
+from src.helpers.helpers import get_base_caps, get_base_executor
 
 
 @pytest.fixture(scope='function')
 def driver(request):
     caps = get_base_caps()
-    EXECUTOR = 'http://127.0.0.1:4723/wd/hub'
+    EXECUTOR = get_base_executor()
 
     driver = webdriver.Remote(
         command_executor=EXECUTOR,
