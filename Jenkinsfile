@@ -14,7 +14,7 @@ pipeline {
       steps {
         catchError {
           script {
-          docker.image('budtmo/docker-android-x86-11.0')
+          docker.image('selenoid/android:10.0')
           }
         }
       }
@@ -23,18 +23,18 @@ pipeline {
       steps {
         catchError {
           script {
-              docker.image('budtmo/docker-android-x86-11.0').withRun('--privileged -d -p 6080:6080 -p 4723:4723 -p 5554:5554 -p 5038:5555 -v $PWD/Ali.apk:/root/tmp/Ali.apk -e DEVICE="Nexus 5" -e APPIUM=true -e APPIUM_HOST="127.0.0.1" -e APPIUM_PORT=4723 --name android') { c ->
-               docker.image('budtmo/docker-android-x86-11.0').withRun('--privileged -d -p 6081:6080 -p 4725:4723 -p 5556:5554 -p 5037:5555 -v $PWD/Ali.apk:/root/tmp/Ali.apk -e DEVICE="Nexus 5" -e APPIUM=true -e APPIUM_HOST="127.0.0.1" -e APPIUM_PORT=4723 --name android_2') { d ->
-                  docker.image('python-mobile-tests') {
-                        sh "sleep 4m"
+              docker.image('aerokube/selenoid:1.10.4').withRun('--name selenoid -p 4444:4444 -v /run/docker.sock:/var/run/docker.sock -v $PWD:/etc/selenoid/',
+                '-service-startup-timeout 120s -session-attempt-timeout 120s -session-delete-timeout 120s -timeout 600s -limit 2') { c ->
+                  docker.image('aerokube/selenoid-ui:1.10.4').withRun('--link selenoid -p 8888:8080', '--selenoid-uri http://selenoid:4444') {
+                  docker.image('python-mobile-tests').inside("--link ${c.id}:selenoid") {
                         sh "pytest ${CMD_PARAMS}"
                     }
                   }
-                }
                }
             }
           }
         }
+    }
     stage('Reports') {
       steps {
         allure([
