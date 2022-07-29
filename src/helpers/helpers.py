@@ -38,9 +38,9 @@ def get_base_executor():
     worker_number = get_worker_index()
     match worker_number:
         case 'gw0':
-            executor = 'http://android:4723/wd/hub'
+            executor = 'http://selenoid:4444/wd/hub'
         case 'master':
-            executor = 'http://android:4723/wd/hub'
+            executor = 'http://selenoid:4444/wd/hub'
         case 'gw1':
-            executor = 'http://android_2:4725/wd/hub'
+            executor = 'http://selenoid:4444/wd/hub'
     return executor
