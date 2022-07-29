@@ -15,20 +15,21 @@ def get_base_caps():
     ANDROID_BASE_CAPS = {
     'app': '/root/tmp/Ali.apk',
     'automationName': 'UIAutomator2',
-    'deviceName': 'android',
-    'version': '10.0',
-    "enableVNC": True,
+    'platformName': 'Android',
+    'platformVersion': '11.0',
+    "appium:newCommandTimeout": 3600,
+    "appium:connectHardwareKeyboard": True
     }
     match worker_number:
         case 'gw0':
             ANDROID_BASE_CAPS["appium:udid"] = 'emulator-5554'
-            # ANDROID_BASE_CAPS["appium:adbPort"] = 5038
+            ANDROID_BASE_CAPS["appium:adbPort"] = 5038
         case 'master':
             ANDROID_BASE_CAPS["appium:udid"] = 'emulator-5554'
-            # ANDROID_BASE_CAPS["appium:adbPort"] = 5038
+            ANDROID_BASE_CAPS["appium:adbPort"] = 5038
         case 'gw1':
             ANDROID_BASE_CAPS["appium:udid"] = 'emulator-5554'
-            # ANDROID_BASE_CAPS["appium:adbPort"] = 5037
+            ANDROID_BASE_CAPS["appium:adbPort"] = 5037
     caps = copy.copy(ANDROID_BASE_CAPS)
     return caps
 
@@ -37,9 +38,9 @@ def get_base_executor():
     worker_number = get_worker_index()
     match worker_number:
         case 'gw0':
-            executor = 'http://selenoid:4444/wd/hub'
+            executor = 'http://android:4723/wd/hub'
         case 'master':
-            executor = 'http://selenoid:4444/wd/hub'
+            executor = 'http://android:4723/wd/hub'
         case 'gw1':
-            executor = 'http://selenoid:4444/wd/hub'
+            executor = 'http://android_2:4725/wd/hub'
     return executor
