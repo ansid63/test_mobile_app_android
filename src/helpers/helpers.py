@@ -15,10 +15,9 @@ def get_base_caps():
     ANDROID_BASE_CAPS = {
     'app': os.path.abspath(os.path.join(ROOT_DIR, "Ali.apk")),
     'automationName': 'UIAutomator2',
-    'platformName': 'Android',
-    'platformVersion': '11.0',
-    "appium:newCommandTimeout": 3600,
-    "appium:connectHardwareKeyboard": True
+    'deviceName': 'android',
+    'version': '10.0',
+    "enableVNC": True,
     }
     match worker_number:
         case 'gw0':
