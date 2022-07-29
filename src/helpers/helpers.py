@@ -23,13 +23,13 @@ def get_base_caps():
     match worker_number:
         case 'gw0':
             ANDROID_BASE_CAPS["appium:udid"] = 'emulator-5554'
-            ANDROID_BASE_CAPS["appium:adbPort"] = 5038
+            # ANDROID_BASE_CAPS["appium:adbPort"] = 5038
         case 'master':
             ANDROID_BASE_CAPS["appium:udid"] = 'emulator-5554'
-            ANDROID_BASE_CAPS["appium:adbPort"] = 5038
+            # ANDROID_BASE_CAPS["appium:adbPort"] = 5038
         case 'gw1':
             ANDROID_BASE_CAPS["appium:udid"] = 'emulator-5554'
-            ANDROID_BASE_CAPS["appium:adbPort"] = 5037
+            # ANDROID_BASE_CAPS["appium:adbPort"] = 5037
     caps = copy.copy(ANDROID_BASE_CAPS)
     return caps
 
