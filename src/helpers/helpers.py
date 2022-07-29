@@ -42,5 +42,5 @@ def get_base_executor():
         case 'master':
             executor = 'http://android:4723/wd/hub'
         case 'gw1':
-            executor = 'http://android_2:4725/wd/hub'
+            executor = 'http://second:4725/wd/hub'
     return executor
