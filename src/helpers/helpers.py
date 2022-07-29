@@ -3,7 +3,7 @@ import os
 import copy
 
 
-ROOT_DIR = Path(__file__).parent.parent.parent
+ROOT_DIR = Path(__file__).parent
 
 def get_worker_index():
     worker = os.getenv('PYTEST_XDIST_WORKER')
