@@ -13,7 +13,7 @@ def get_worker_index():
 def get_base_caps():
     worker_number = get_worker_index()
     ANDROID_BASE_CAPS = {
-    'app': os.path.abspath(os.path.join(ROOT_DIR, "Ali.apk")),
+    'app': '/root/tmp/Ali.apk',
     'automationName': 'UIAutomator2',
     'deviceName': 'android',
     'version': '10.0',
