@@ -19,15 +19,6 @@ pipeline {
         }
       }
     }
-    stage('create bridge') {
-      steps {
-        catchError {
-          script {
-              sh 'docker network create -d bridge mobile'
-              }
-            }
-          }
-        }
     stage('Run emulators') {
       steps {
         catchError {
