@@ -19,7 +19,7 @@ def get_base_caps():
     'platformVersion': '11.0',
     "appium:newCommandTimeout": 3600,
     "appium:connectHardwareKeyboard": True,
-    "adbExecTimeout": 30000
+    "adbExecTimeout": 50000
     }
     match worker_number:
         case 'gw0':
